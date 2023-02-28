@@ -2,6 +2,7 @@ import yfinance as yf
 import plotly.express as px
 import plotly.io as pio
 import numpy as np
+import plotly.graph_objects as go
 pio.renderers.default = "browser"
 
 
@@ -55,6 +56,31 @@ def close_plot(df, adj = True, normalize = False):
             )
         fig.show()
         
+def returns_plot(df, adj = True):
+       
+    if adj:
+        close = df.loc[:,"Adj Close"].copy()
+    else:
+        close = df.loc[:,"Close"].copy()
+
+    ret = close.pct_change().dropna()
+    cum_ret  = ((1 + ret).cumprod() -1) * 100
+    fig = px.line(cum_ret, template = 'plotly_dark')
+    fig.update_layout(
+        legend = dict(title = None, font = dict(size = 16)),
+        title={
+            'y':0.95,
+            'x':0.5,
+            'text': "Daily Cumulative Returns",
+            'font': {'size': 24},
+            'xanchor': 'center',
+            'yanchor': 'top'},
+        hovermode = "x unified",
+        xaxis_title = "Date",
+        yaxis_title = "% Returns")
+  
+    fig.show()  
+    
 def risk_return(df, adj = True, crypto = False):
     
     if adj:
@@ -124,12 +150,5 @@ def ret_corr(df, adj = True, crypto = False):
         )
     fig.show()
 
-''' Analysis Using Previously Defined Functions '''
+''' Test ''' 
 
-tickers = ['AMZN', 'AAPL', 'MSFT', 'CPB', 'DG']
-start_date = "2015-01-01"
-df = yf.download(tickers, start = start_date)
-close_plot(df)
-close_plot(df, normalize = True)
-risk_return(df)
-ret_corr(df)
