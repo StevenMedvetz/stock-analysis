@@ -1,22 +1,28 @@
-''' 
-Stock Analyzer Library
-Version 2.0
-Date: March 13, 2023
-Author: Steven Medvetz
-'''
 
+''' Portfolio Optimization '''
+
+# import pandas as pd
 import numpy as np
+# from pypfopt import risk_models, plotting, expected_returns, EfficientFrontier as EF
 import yfinance as yf
+# from stock_analyzer import returns_plot
 from datetime import datetime
+# import yfinance as yf
 import plotly.express as px
 import plotly.io as pio
+# import numpy as np
 import plotly.graph_objects as go
 from plotly.subplots import make_subplots
 import pandas as pd
 import random
+
 pio.renderers.default = "browser"
 
-# Portfolio is for analyzing mulitiple stocks in portfolio... While most functions work for analyizing single stocks, you might get some errors
+ticker ='SPY'
+start_date = '2017-04-01' 
+# stock_data = yf.download(tickers, start = start_date)
+
+
 
 class Portfolio:
     def __init__(self, assets, start_date, weights = None, end_date = datetime.today().strftime('%Y-%m-%d')):
@@ -34,7 +40,8 @@ class Portfolio:
         total_weight = sum(weights)
         return np.array([round(weight / total_weight, 1) for weight in weights])
             
-     
+      
+
     # Data gather using yfinance
     def get_data(self):
         df = yf.download(self.assets, start = self.start_date, end = self.end_date)
@@ -263,7 +270,7 @@ class Portfolio:
         fig.update_traces(hovertemplate='%{label}: %{percent}')
         fig.show()
 
-# Asset is built for analyizng single stocks. It has many of the same capabilities as Portfolio, but tapered to single stock metrics
+
 class Asset:
     def __init__(self, ticker, start_date, end_date = datetime.today().strftime('%Y-%m-%d')):
         self.ticker = ticker
@@ -439,3 +446,16 @@ class Asset:
         fig.update_yaxes(title='Volume',row=2,col=1)
         
         fig.show()
+
+
+spy = Asset(ticker, start_date)
+sr = spy.returns_plot(cum = True)
+# spy.candlestick(sma1 = 20, sma2 = 50)
+
+# port = Portfolio(tickers, start_date)
+# std = port.port_std()
+# port.pie_plot()
+# port.returns_plot(cum = True)
+# port.close_plot(normalize = True)
+# candlestick(ticker = 'SPY',start_date = '2020-01-01', sma1 = 10, sma2 = 50, template = 'plotly_dark')
+
