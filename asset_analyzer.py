@@ -97,7 +97,6 @@ class Asset:
             
         if normalize:
             df["Close"] = df["Close"].div(df["Close"].iloc[0]) #Normalizes data
-            # normclose = normclose.to_frame()
             fig = px.line(df["Close"], 
                           x = df.index,
                           y = df["Close"],
@@ -183,7 +182,6 @@ class Asset:
                           xaxis_title='Date',
                           yaxis_title='Price (USD)',
                           hovermode = "x unified",
-                          # xaxis_type="category",
                           bargap=0,
                           bargroupgap=0,
                           template = template)
