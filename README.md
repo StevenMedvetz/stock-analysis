@@ -41,8 +41,8 @@ As mentioned earlier there are two modules: Asset and Portfolio.  Below you can 
 # Getting Started
 After downloading/importing the modules you will need to download stock data for your analysis. To do this you need to provide of list of stock tickers and a start date. Providing an end date is optional and if left blank it will default to today. See the code below:
 
-<p align="center" width="100%">
-    <img width="40%" src="https://user-images.githubusercontent.com/67655305/226499143-d6e7fe34-b492-4459-aca5-1cdfc0b0227e.png"> 
+<p align="center" width="1000%">
+    <img width="50%" src="https://user-images.githubusercontent.com/67655305/226499143-d6e7fe34-b492-4459-aca5-1cdfc0b0227e.png"> 
 </p>
 
 This format will work for initializing both you Asset and Portfolio classes, because you can analyze multiple stocks in Asset, it just wont include weights:
@@ -54,13 +54,13 @@ This format will work for initializing both you Asset and Portfolio classes, bec
 The whole idea of the Portfolio module is to have analyze weighted portfolio, and not just a group of stocks. So how do we do that? To add weights you must define an array of weights respective to your list of ticker symbols. Your weights must add up to 1. See the code below:
 
 <p align="center" width="100%">
-    <img width="40%" src="https://user-images.githubusercontent.com/67655305/226500779-8aff1329-67cf-4b97-8fc6-b709aba5d153.png"> 
+    <img width="50%" src="https://user-images.githubusercontent.com/67655305/226500779-8aff1329-67cf-4b97-8fc6-b709aba5d153.png"> 
 </p>
 
 However, adding weights is an optional argument for initializing a Portfolio class.  This is because I thought it might be tedious to have to change the weights everytime I added or removed a stock.  So if you decide to not define weights, it will automatically assign weights summing to one using the function below:
 
 <p align="center" width="100%">
-    <img width="40%" src="https://user-images.githubusercontent.com/67655305/226500900-e4585442-bf68-43b5-9709-38a3145ba860.png"> 
+    <img width="60%" src="https://user-images.githubusercontent.com/67655305/226500900-e4585442-bf68-43b5-9709-38a3145ba860.png"> 
 </p>
 
 Once you have you class initialized you can start your analysis.
