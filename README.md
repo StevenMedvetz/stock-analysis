@@ -1,13 +1,68 @@
-![Stock_Analyzer](Banner.png)
 
-This repository is for a project on stock analysis using python.  The python script contains three functions to help you analyze stocks.  They all require an input of a dataframe. While this dataframe doesn't technically have to be built from the yfinance.download() function, it must have the same structure and column names.  These functions were designed based around that function from the yahoo finance library.
+<p align="center" width="100%">
+    <img width="70%" src="Banner.png"> 
+</p>
 
-The first function: close_plot() plots the closing prices of one or more stocks.  The function contains a few arguments: close_plot(df, adj = True, normalize = False).
+# Background
+This repository is for a personal python library I built for analyzing stock and stock portfolio data.  It is built using OOP methods based on the yfinance and plotly libraries.  It is broken up into two modules: Assets and Portfolio.  Assets, is for the analysis of a stock or group of stocks while Portfolio is for the analysis of a group of stocks weighted in a portfolio.  There are different calculations and visualizations included in this library to save time with data analysis, but keep in mind this was built for my personal use and it is not meant to be a production level library. 
 
-"df" is the dataframe input required.  As I previously said, this dataframe is built from the yfinance.download() function, so it expects that format as input.
-The dataframe input has a date index, and the following columns: "Adj Close", "Close", "High", "Low", "Open", and "Volume".  
+# What it's good For:
+This library is good for exploratory data analysis of stocks.  It is meant to save time plotting and calculating standard operations in a format that suits _my_ preferences. You can analyze up-to-date historical data of any stock listed on yahoo finance.
 
-"adj = True" refers to the "Adj Close" column.  This argument assumes that the user wants to use the adjusted closing price "Adj Close" rather than the closing price "Close" for plotting.  Setting "adj = False" will make the function use the "Close" column data for plotting.
+# What it isn't good for:
+This library isn't built for realtime data analysis, portfolio optimization (yet), backtesting trading algorithms (trading in general), etc.
 
-"normalize = False" assumes that the user does not want to normalize the price data for plotting.  Setting this equal to true will divide all values for each closing price by the first closing price for that stock.  This allows the user to better compare stock performance of stocks with large differences in price.
+# What can it do?
+As mentioned earlier there are two modules: Asset and Portfolio.  Below you can see a breakdown of the functions/capabilities in both, including some overlap.
+
+## Asset
+- Data Gather
+- Simple Returns
+- Log Returns
+- Mean Returns
+- Standard Deviaton of Returns (Volatility)
+- Closing Price Plotting
+- Returns Plotting
+- Candlestick Plotting w/moving averages
+
+## Portfolio
+- Data Gather
+- Simple Returns
+- Log Returns
+- Portfolio Returns
+- Closing Price Plotting
+- Returns Plotting
+- Covariance Matrix w/heatmap
+- Correlation Matrix w/heatmap
+- Portfolio Standard Deviation
+- Risk / Return Plot
+- Portfolio Pie Plot
+
+# Getting Started
+After downloading/importing the modules you will need to download stock data for your analysis. To do this you need to provide of list of stock tickers and a start date. Providing an end date is optional and if left blank it will default to today. See the code below:
+
+<p align="center" width="100%">
+    <img width="40%" src="https://user-images.githubusercontent.com/67655305/226499143-d6e7fe34-b492-4459-aca5-1cdfc0b0227e.png"> 
+</p>
+
+This format will work for initializing both you Asset and Portfolio classes, because you can analyze multiple stocks in Asset, it just wont include weights:
+
+<p align="center" width="100%">
+    <img width="40%" src="https://user-images.githubusercontent.com/67655305/226499658-f2a95537-5c9a-4d2a-b7d7-47d38d0865f9.png"> 
+</p>
+
+The whole idea of the Portfolio module is to have analyze weighted portfolio, and not just a group of stocks. So how do we do that? To add weights you must define an array of weights respective to your list of ticker symbols. Your weights must add up to 1. See the code below:
+
+<p align="center" width="100%">
+    <img width="40%" src="https://user-images.githubusercontent.com/67655305/226500779-8aff1329-67cf-4b97-8fc6-b709aba5d153.png"> 
+</p>
+
+However, adding weights is an optional argument for initializing a Portfolio class.  This is because I thought it might be tedious to have to change the weights everytime I added or removed a stock.  So if you decide to not define weights, it will automatically assign weights summing to one using the function below:
+
+<p align="center" width="100%">
+    <img width="40%" src="https://user-images.githubusercontent.com/67655305/226500900-e4585442-bf68-43b5-9709-38a3145ba860.png"> 
+</p>
+
+Once you have you class initialized you can start your analysis.
+
 
