@@ -1,4 +1,4 @@
-[Stock_Analyzer](https://user-images.githubusercontent.com/67655305/226493727-e884fe63-fb3e-489a-b405-c79249be18ee.png)
+[Stock_Analyzer](Banner.png)
 
 This repository is for a project on stock analysis using python.  The python script contains three functions to help you analyze stocks.  They all require an input of a dataframe. While this dataframe doesn't technically have to be built from the yfinance.download() function, it must have the same structure and column names.  These functions were designed based around that function from the yahoo finance library.
 
