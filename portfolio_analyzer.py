@@ -267,6 +267,7 @@ class Portfolio:
 
 tickers =['SPY', 'AAPL', 'GOOGL', 'META', 'AMZN', 'NFLX']
 start_date = '2017-04-01' 
-
-port = Portfolio(tickers, start_date)
+weights = ([0.4, 0.1, 0.1, 0.1, 0.1, 0.1])
+port = Portfolio(tickers, start_date, weights)
 port.returns_plot(cum = True)
+port.returns_plot(cum = True, port = True)

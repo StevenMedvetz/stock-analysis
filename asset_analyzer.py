@@ -192,3 +192,8 @@ class Asset:
         fig.update_yaxes(title='Volume',row=2,col=1)
         
         fig.show()
+
+tickers =['SPY', 'AAPL', 'GOOGL', 'META', 'AMZN', 'NFLX']
+start_date = '2017-04-01' 
+weights = ([0.4, 0.1, 0.1, 0.1, 0.1, 0.1])
+port = Portfolio(tickers, start_date, weights)
