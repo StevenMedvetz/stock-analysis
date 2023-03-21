@@ -16,9 +16,6 @@ import pandas as pd
 import random
 pio.renderers.default = "browser"
 
-ticker ='SPY'
-start_date = '2017-04-01' 
-
 
 
 
@@ -268,4 +265,8 @@ class Portfolio:
         fig.show()
 
 
+tickers =['SPY', 'AAPL', 'GOOGL', 'META', 'AMZN', 'NFLX']
+start_date = '2017-04-01' 
 
+port = Portfolio(tickers, start_date)
+port.returns_plot(cum = True)
