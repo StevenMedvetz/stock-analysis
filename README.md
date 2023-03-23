@@ -4,7 +4,7 @@
 </p>
 
 # Background
-This repository is for a personal python library I built for analyzing stock and stock portfolio data.  It is built using OOP methods based on the yfinance and plotly libraries.  It is broken up into two modules: Assets and Portfolio.  Assets, is for the analysis of a stock or group of stocks while Portfolio is for the analysis of a group of stocks weighted in a portfolio.  There are different calculations and visualizations included in this library to save time with data analysis, but keep in mind this was built for my personal use and it is not meant to be a production level library. 
+This repository is for a personal python library I built for analyzing stock and stock portfolio data.  It is built using OOP methods based on the yfinance and plotly libraries.  It is one module with two classes: Assets and Portfolio.  Assets, is for the analysis of a stock or group of stocks while Portfolio is for the analysis of a group of stocks weighted in a portfolio.  There are different calculations and visualizations included in this library to save time with data analysis, but keep in mind this was built for my personal use and it is not meant to be a production level library. 
 
 # What it's good For:
 This library is good for exploratory data analysis of stocks.  It is meant to save time plotting and calculating standard operations in a format that suits _my_ preferences. You can analyze up-to-date historical data of any stock listed on yahoo finance.
@@ -54,7 +54,7 @@ This format will work for initializing both you Asset and Portfolio classes, bec
 The whole idea of the Portfolio module is to have analyze weighted portfolio, and not just a group of stocks. So how do we do that? To add weights you must define an array of weights respective to your list of ticker symbols. Your weights must add up to 1. See the code below:
 
 <p align="center" width="100%">
-    <img width="50%" src="https://user-images.githubusercontent.com/67655305/226500779-8aff1329-67cf-4b97-8fc6-b709aba5d153.png"> 
+    <img width="50%" src="https://user-images.githubusercontent.com/67655305/227080076-1332cc82-bb97-4f4c-81c4-aa50bca4022a.png"> 
 </p>
 
 However, adding weights is an optional argument for initializing a Portfolio class.  This is because I thought it might be tedious to have to change the weights everytime I added or removed a stock.  So if you decide to not define weights, it will automatically assign weights summing to one using the function below:
